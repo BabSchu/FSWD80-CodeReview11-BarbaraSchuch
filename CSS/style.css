@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+html .page-footer {
+  bottom: 0;
+  position: absolut !important;
+  width: 100%;
+  height: 20vh;
+  background-color: rgba(17, 122, 139, 0.2);
+}
+
+html .page-footer .footer-block {
+  margin: 20px 0;
+}
+
+.socialmedia-icon {
+  display: inline-block;
+  font-size: 1.5rem;
+  border: 4px solid black;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin: 0px 3px;
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: black;
+  color: white;
+}
+
+.socialmedia-icon:hover {
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.fas {
+  line-height: 1.5;
+}
+
+.fa-trash, .fa-user-edit {
+  font-size: 1.5em;
+}
+
+.userIcon {
+  font-size: 2.5em;
+}
+
+.cardimg {
+  background-image: url("https://cdn.pixabay.com/photo/2013/12/15/17/17/vienna-228943_1280.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 40vh;
+}
+
+.bg-color {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: 'Roboto', sans-serif;
+}
+/*# sourceMappingURL=style.css.map */

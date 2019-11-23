@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap')
+
+$primary-color: rgb(23, 162, 184)
+$secondary-color: darken(rgba($primary-color,0.2),10%)
+$third-color: rgb(0,0,0)
+$height-footer: 20vh
+
+//footer
+html
+  min-height: 100%
+  position: relative
+
+  body
+    //margin-bottom: $height-footer
+  
+  .page-footer
+    bottom: 0
+    position: absolut !important
+    width: 100%
+    height: $height-footer
+    background-color: $secondary-color
+    .footer-block 
+      margin: 20px 0   
+
+.socialmedia-icon
+    display: inline-block
+    font-size: 1.5rem
+    border: 4px solid black
+    border-radius: 50%
+    width: 3rem
+    height: 3rem
+    margin: 0px 3px
+    text-align: center
+    margin-bottom: 1rem
+    background-color: black
+    color: white
+
+.socialmedia-icon:hover
+    color: white
+
+//links
+a 
+    color: white
+
+a:hover
+    text-decoration: none
+    color: white
+
+//font awsome icons
+
+.fas
+    line-height: 1.5
+
+.fa-trash, .fa-user-edit
+    font-size: 1.5em
+
+.userIcon
+    font-size: 2.5em
+
+//header
+.cardimg
+    background-image: url("https://cdn.pixabay.com/photo/2013/12/15/17/17/vienna-228943_1280.jpg")
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: 50% 50%
+    height: 40vh
+
+.bg-color
+    background-color: rgba($third-color,0.5)
+    font-family: 'Roboto', sans-serif
+
+//restaurant Card-img
+
+// .imgContainer
+//     height: 40%
+//     width: 100%
+
+// .card-img-top
+//     width: 100%
+//     height: 100%
+//     object-fit: cover
+
+
+
