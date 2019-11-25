@@ -46,8 +46,10 @@ class Restaurant {
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item font-weight-bold">
-                    <i class="fas fa-map-marked"></i><br>
-                    <span class="font-weight-normal">'.$value["ZIP_code"].' ' .$value["city"].'<br>'.$value["street_name"].'</span>
+                <a href="../pages/map.php?address='.$value['ZIP_code'].$value['street_name'].'">
+                    <i class="fas fa-map-marked text-dark"></i><br>
+                    <span class="font-weight-normal text-dark">'.$value["ZIP_code"].' ' .$value["city"].'<br>'.$value["street_name"].'</span>
+                </a>
                 </li>
                 <li class="list-group-item font-weight-bold">
                         <i class="fas fa-tty"></i></i><span class="font-weight-normal"> '. $value["tel_nr"].'</span>
