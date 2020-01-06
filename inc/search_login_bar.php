@@ -30,7 +30,7 @@ if (isset($_SESSION['admin'])){
     </div>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle ml-2 ml-lg-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user userIcon"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -45,7 +45,7 @@ if (isset($_SESSION['admin'])){
 
                     </a>
                     <div class='dropdown-divider'></div>
-                    <a class='dropdown-item' href='../login/logout.php?logout'>Sign Out</a>
+                    <a class='dropdown-item' href='../action/logout.php?logout'>Sign Out</a>
 
                     <?php
 
@@ -57,11 +57,11 @@ if (isset($_SESSION['admin'])){
                         </span>
                     </a>
                     <div class='dropdown-divider'></div>
-                    <a class='dropdown-item' href='../login/logout.php?logout'>Sign Out</a>
+                    <a class='dropdown-item' href='../action/logout.php?logout'>Sign Out</a>
 
                     <?php
                     } else {
-                    echo "<a class='dropdown-item' href='../login/login.php'>Sign In</a>";
+                    echo "<a class='dropdown-item' href='../pages/login.php'>Sign In</a>";
                     }
                     ?>
                     </div>

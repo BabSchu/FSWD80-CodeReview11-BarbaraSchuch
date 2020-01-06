@@ -2,16 +2,6 @@
 
 require_once "../inc/connect.php";
 
-$sql2 = 
-"SELECT 
-blogpost.ID, blogpost.name, blogpost.img, blogpost.description, blogpost.webadress, blogpost.last_update, 
-adress.ZIP_code,city.city, adress.street_name, 
-todo.type
-FROM `todo`
-INNER JOIN blogpost ON todo.fk_blogpost_ID=blogpost.ID
-INNER JOIN adress ON blogpost.fk_adress_ID=adress.ID
-INNER JOIN city ON adress.fk_city_ID=city.ID;";
-
 // if(isset($_REQUEST["term"])){
 //     // Prepare a select statement
 //     $sql2 = "SELECT 
@@ -25,25 +15,25 @@ INNER JOIN city ON adress.fk_city_ID=city.ID;";
 //     `name` LIKE ?";
 //     }
 
-$result2 = $connect->query($sql2);
-
-if($result2->num_rows == 0){
-    $row = "No result2";
-    $res2 = 0;
-} elseif($result2->num_rows == 1){
-    $row = $result2->fetch_assoc();
-    $res2 = 1;
-} else{
-    $row = $result2->fetch_all(MYSQLI_ASSOC);
-    $res2 = 2;
-}
 
 
 
 class Todo {
-    function __construct() {
+    function __construct($sql2) {
         global $connect, $row, $res2;
-
+        
+        $result2 = $connect->query($sql2);
+        
+        if($result2->num_rows == 0){
+            $row = "";
+            $res2 = 0;
+        } elseif($result2->num_rows == 1){
+            $row = $result2->fetch_assoc();
+            $res2 = 1;
+        } else{
+            $row = $result2->fetch_all(MYSQLI_ASSOC);
+            $res2 = 2;
+        }
         if($res2 == 0){
             echo $row;
         }elseif($res2 == 1){
@@ -58,9 +48,9 @@ class Todo {
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item font-weight-bold">
-                        <a href="../pages/map.php?address='.$value['ZIP_code'].$value['street_name'].'">
+                        <a href="../pages/map.php?address='.$row['ZIP_code'].$row['street_name'].'">
                             <i class="fas fa-map-marked text-dark"></i><br>
-                            <span class="font-weight-normal text-dark">'.$value["ZIP_code"].' ' .$value["city"].'<br>'.$value["street_name"].'</span>
+                            <span class="font-weight-normal text-dark">'.$row["ZIP_code"].' ' .$row["city"].'<br>'.$row["street_name"].'</span>
                         </a>
                     </li>
                     <li class="list-group-item font-weight-bold">

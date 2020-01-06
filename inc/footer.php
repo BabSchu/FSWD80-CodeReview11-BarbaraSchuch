@@ -1,4 +1,4 @@
-<footer class="page-footer mt-4 py-4 px-0 sticky-bottom">
+<footer class="page-footer mt-4 py-4 px-0 sticky-bottom bg-info">
     <div class="row m-0">
         <div class="col-12 text-center col-md-4 text-md-right p-0">
             <p class="mt-2"> @Copyright 2019 | Barbara Schuch </p>

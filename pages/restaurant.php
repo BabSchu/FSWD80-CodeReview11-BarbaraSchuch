@@ -17,7 +17,19 @@ include_once "../inc/search_login_bar.php";
 
 <?php
 include_once "../inc/displayRestaurants.php";
-$obj = new Restaurant();
+
+$sql = 
+"SELECT 
+blogpost.ID, blogpost.name, blogpost.img, blogpost.description, blogpost.webadress, blogpost.last_update, 
+adress.ZIP_code,city.city, adress.street_name, 
+restaurant.tel_nr, restaurant.type_icon
+FROM restaurant
+INNER JOIN blogpost ON restaurant.fk_blogpost_ID=blogpost.ID
+INNER JOIN adress ON blogpost.fk_adress_ID=adress.ID
+INNER JOIN city ON adress.fk_city_ID=city.ID
+;";
+
+$obj = new Restaurant($sql);
 $connect->close();
 ?>
     </div><!---row end--->

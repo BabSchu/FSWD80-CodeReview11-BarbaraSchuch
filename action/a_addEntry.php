@@ -4,7 +4,7 @@ session_start();
 
 //if session is not set this will redirect to home page
 if (isset($_SESSION['user' ]) ) {
-    header("Location: ../pages/home.php");
+    header("Location: ../index.php");
     exit;
 } 
 

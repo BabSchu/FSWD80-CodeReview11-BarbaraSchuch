@@ -18,8 +18,7 @@ include "../inc/header.php";
         if(isset($_GET["id"]) && ($_GET["table"])){
             $id = $_GET["id"];
             $table = $_GET["table"];
-            echo $table;
-            echo $sql = "DELETE FROM `$table` WHERE fk_blogpost_ID = $id";
+            $sql = "DELETE FROM `$table` WHERE fk_blogpost_ID = $id";
             if(mysqli_query($connect ,$sql)){
                 echo "<h1 class='text-danger'>Record Deleted from Restaurant</h1> 
                 <a href='../pages/home.php'><button type='button' class='btn btn-info mt-4'>Back</button></a>";
@@ -30,7 +29,6 @@ include "../inc/header.php";
                 <a href='../pages/home.php'><button type='button' class='btn btn-info mt-4'>Back</button></a>";
             }
         }
-
     ?>
     </div>
 

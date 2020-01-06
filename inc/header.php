@@ -21,9 +21,10 @@
                 </ul>
             </div>
         </nav>
-        <a href="../pages/home.php" class="text-white bg-color">
+        <a href="home.php" class="text-white bg-color">
             <h1 class="card-title font-weight-normal py-3 p-5"><?= $title?></h1>
         </a>
     </div>
 </div>
 <!-- <p class="font-italic"><?= $quote?></p> -->
+

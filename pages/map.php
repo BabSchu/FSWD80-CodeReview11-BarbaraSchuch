@@ -14,7 +14,7 @@ if (isset($_GET['address'])){
     $stripped = str_replace(' ', '', $address);
 }
 
-require_once 'RESTful.php';
+require_once 'RESTful.php';//from the API DAY2 Prework
 $url = 'https://maps.googleapis.com/maps/api/geocode/xml?address='.$stripped.'&key=AIzaSyBtjaD-saUZQ47PbxigOg25cvuO6_SuX3M';
 $response = curl_get($url);
 $xml = simplexml_load_string($response);

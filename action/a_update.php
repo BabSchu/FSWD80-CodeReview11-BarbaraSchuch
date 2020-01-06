@@ -9,7 +9,6 @@ if (isset($_SESSION['user' ]) ) {
 } 
 
 ##### TODO: Validation 
-##### TODO: fix -> type and status are not updated
 
 require_once "../inc/connect.php";
 $title = "";
@@ -17,6 +16,7 @@ $title = "";
 require_once "../inc/head.php";
 include "../inc/header.php";
 
+$id = ($_POST['id']);
 $name = trim($_POST['name']);
 // trim - strips whitespace (or other characters) from the beginning and end of a string
 $name = strip_tags($name);
@@ -25,42 +25,25 @@ $name = htmlspecialchars($name);
 $description = trim($_POST['description']);
 $webadress = ($_POST['webadress']);
 $img = $_POST['img'];
-$ZIP_code = $_POST['ZIP_code'];
-$city = $_POST['city'];
-$street_name = $_POST['street_name'];
+$address = $_POST['adress'];
 $tel_nr = $_POST['tel_nr'];
-$type_icon = $_POST['type_icon'];
+// $type_icon = $_POST['type_icon'];
 $restaurant_type = $_POST['restaurant_type'];
 
 //mysql update statement
 $sql = "UPDATE `restaurant` 
+        INNER JOIN blogpost ON restaurant.fk_blogpost_ID=blogpost.ID
         SET 
-            `name` = '$name',
-            `description` = '$description', 
-            `img` = '$img', 
-            `webadress` = '$webadress', 
-            `ZIP_code`= '$ZIP_code', 
-            `city` = '$city', 
-            `street_name` = '$street_name', 
-            `tel_nr` = '$tel_nr', 
-            `type_icon` = '$type_icon', 
-            `restaurant_type` = '$restaurant_type', 
-        WHERE
-            `ID` = $id";
+        `name` = '$name',
+        `description` = '$description', 
+        `img` = '$img', 
+        `webadress` = '$webadress', 
+        `fk_adress_ID`= '$address', 
+        `tel_nr` = '$tel_nr', 
+        `type` = '$restaurant_type'
+        WHERE fk_blogpost_ID = $id;";
 
-$sql = 
-"SELECT 
-blogpost.ID, blogpost.name, blogpost.img, blogpost.description, blogpost.webadress, blogpost.last_update, 
-adress.ZIP_code,city.city, adress.street_name, 
-restaurant.tel_nr, restaurant.type_icon
-FROM restaurant
-INNER JOIN blogpost ON restaurant.fk_blogpost_ID=blogpost.ID
-INNER JOIN adress ON blogpost.fk_adress_ID=adress.ID
-INNER JOIN city ON adress.fk_city_ID=city.ID
-;";
-
-            
-
+          
 //executes update statement
 if ($connect->query($sql) === TRUE) {
     echo "<h1 class='success m-4'> Record updated successfully </h1>";
@@ -70,17 +53,6 @@ if ($connect->query($sql) === TRUE) {
 
 $connect->close();
 
-### Using JS to redirect after 5 sec.
-
-// echo
-// "<script>
-// setTimeout(function () {
-//     window.location.href= 'insert.php';
-// }, 5000);
-// </script>"
-
-#### Using PHP to redirect immediatly
-//header('location: insert.php');
 ?>
 
     <a class="btn btn-info m-4" href="../pages/home.php" role="button">Back</a>
